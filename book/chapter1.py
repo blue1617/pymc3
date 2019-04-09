@@ -12,8 +12,8 @@ plt.ylabel("count of text-msgs received")
 plt.title("Did the user's texting habits change over time?")
 plt.xlim(0, n_count_data);
 
-alpha = 1.0 / count_data.mean()  # Recall count_data is the
-# variable that holds our txt counts
+alpha = 1.0 / count_data.mean()  # Recall count_data is the  variable that holds our txt counts
+#Andrzej idea using mapping and reducing as I did in Figaro for the model
 with pm.Model() as auctionModel:
     lambda_1 = pm.Exponential("lambda_1", alpha)
     lambda_2 = pm.Exponential("lambda_2", alpha)
