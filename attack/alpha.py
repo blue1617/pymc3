@@ -10,10 +10,10 @@ def alpha (nameAgeList):
     # averageAge = averageAgeIdenityMap[0]/averageAgeIdenityMap[1]# alternative return directly the division of the first and the second value in the list
     return averageAge
 
-nameAgeList = [("Alice", 10),("Alice", 15),("Bob", 30)]
-averageAge=alpha(nameAgeList)
-print (averageAge)
-
-#why does the line below work? There are three basic sequence types: lists, tuples, and range objects.
-print("reducing a pair works", reduce(lambda x,y: (x+y), (5, 25)))
+# nameAgeList = [("Alice", 10),("Alice", 15),("Bob", 30)]
+# averageAge=alpha(nameAgeList)
+# print (averageAge)
+#
+# #why does the line below work? There are three basic sequence types: lists, tuples, and range objects.
+# print("reducing a pair works", reduce(lambda x,y: (x+y), (5, 25)))
 
