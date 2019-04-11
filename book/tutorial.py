@@ -12,4 +12,4 @@ with pm.Model() as model:
     mu = pm.Normal('mu', mu=0, sd=1)
     obs = pm.Normal('obs', mu=mu, sd=1, observed=np.random.randn(100))
     plus_2 = pm.Deterministic('x plus 2', mu + 2)
-    print(plus_2)
+    print(plus_2)#type Tensor
