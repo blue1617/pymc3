@@ -19,9 +19,14 @@ with pm.Model() as auctionModel:
     lambda_2 = pm.Exponential("lambda_2", alpha)
     tau = pm.DiscreteUniform("tau", lower=0, upper=n_count_data)
     print("Random output: ", tau.random(), tau.random(), tau.random())
-    @pm.deterministic
+    @pm.deterministic#module 'pymc3' has no attribute 'deterministic'
     def lambda_(tau=tau, lambda_1=lambda_1, lambda_2=lambda_2):
         out=np.zeros(n_count_data)
         out[:tau]=lambda_1
         out[tau:]=lambda_2
         return tau
+    observation = pm.Poisson("obs", lambda_, value=count_data, observed=True)
+    model = pm.Model([observation, lambda_1, lambda_2, tau])
+    mcmc = pm.MCMC(model)
+    mcmc.sample(40000, 10000)
+    lambda_1=mcmc.sample()
